@@ -13,27 +13,51 @@ Ensure your SD card is structured exactly like this:
 
 ```text
 SDCARD/
+└── App/
+    ├── Syncthing/ (Manual startup)
+    │   ├── config.json
+    │   ├── launch.sh
+    │   └── syncthing (Executable)
+    └── SyncThinkQuickKill/ (Optional kill-switch app)
+        ├── config.json
+        └── launch.sh
+```
+
+### Automatic startup
+If you want Syncthing to start from boot, you must copy the `.tmp_update/` folder too:
+
+```text
+SDCARD/
 ├── App/
-│   ├── Syncthing/
+│   ├── Syncthing/ (Manual startup)
 │   │   ├── config.json
 │   │   ├── launch.sh
 │   │   └── syncthing (Executable)
 │   └── SyncThinkQuickKill/ (Optional kill-switch app)
 │       ├── config.json
 │       └── launch.sh
-└── .tmp_update/
+└── .tmp_update/ (Automatic startup)
     └── startup/
         └── syncthing.sh
-
 ```
 
 ## Setup Instructions
 
+1. Copy the `App` folder to the root of your SD card.
+3. Insert the SD card into your Miyoo and turn it on.
+4. Ensure Wi-Fi is enabled.
+5. Navigate to **Apps** and run **Syncthing**.
+6. The script will generate your configuration, bind your IP, and display a prompt with your GUI IP address (e.g., `192.168.1.X:8384`).
+7. On a PC or smartphone connected to the same network, navigate to that IP address in a web browser to complete your folder syncing setup.
+
+### Setup for Automatic Startup
+
+> **CAUTION**: If both the .tmp_update/ and App/Syncthing are in the SD Card, you **MUST NOT** start Syncthing manually. This creates a bug in which the web GUI is not shown. (You may check the IP in Onion's WIFI settings)
+
 1. Copy the `App` and `.tmp_update` folders to the root of your SD card.
 2. Insert the SD card into your Miyoo and turn it on.
 3. Ensure Wi-Fi is enabled.
-4. Navigate to **Apps** and run **Syncthing**.
-5. The script will generate your configuration, bind your IP, and display a prompt with your GUI IP address (e.g., `192.168.1.X:8384`).
+4. It is **NOT** necessary to manually start the Syncthing app. If you do, the web GUI will not show.
 6. On a PC or smartphone connected to the same network, navigate to that IP address in a web browser to complete your folder syncing setup.
 
 ## How it Works
