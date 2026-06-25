@@ -47,7 +47,7 @@ SDCARD/
 3. Insert the SD card into your Miyoo and turn it on.
 4. Ensure Wi-Fi is enabled.
 5. Navigate to **Apps** and run **Syncthing**.
-6. The script will generate your configuration, bind your IP, and display a prompt with your GUI IP address (e.g., `192.168.1.X:8384`).
+6. The script will generate your configuration, bind your IP, and display a prompt with your GUI IP address (e.g., `192.168.1.X:8384`, port will always be `:8384`).
 7. On a PC or smartphone connected to the same network, navigate to that IP address in a web browser to complete your folder syncing setup.
 
 ### Setup for Automatic Startup
@@ -57,8 +57,9 @@ SDCARD/
 1. Copy the `App` and `.tmp_update` folders to the root of your SD card.
 2. Insert the SD card into your Miyoo and turn it on.
 3. Ensure Wi-Fi is enabled.
-4. It is **NOT** necessary to manually start the Syncthing app. If you do, the web GUI will not show.
-6. On a PC or smartphone connected to the same network, navigate to that IP address in a web browser to complete your folder syncing setup.
+5. It is **NOT** necessary to manually start the Syncthing app. If you do, the web GUI will not show.
+    * If you don't know your device's IP, you may check it in Onion's Settings. The port will always be `:8384`.
+7. On a PC or smartphone connected to the same network, navigate to that IP address in a web browser to complete your folder syncing setup.
 
 ## How it Works
 
