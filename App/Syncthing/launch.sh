@@ -43,12 +43,13 @@ changeguiip() {
     
     if grep -q "<address>0.0.0.0:8384</address>" "$appdir/config/config.xml"; then
         if [ "$IP" = "127.0.0.1" ]; then
-            build_infoPanel "Connect to WiFi to access GUI!"
+            build_infoPanel "Connect to WiFi to access GUI! \n The app will close automatically."
+            sleep 5
         else
-            build_infoPanel "GUI IP is $IP:8384"
+            build_infoPanel "GUI IP is $IP:8384 \n The app will close automatically."
+            sleep 10
         fi
         skiplast=1
-        sleep 5
         return
     fi
 
@@ -74,5 +75,6 @@ if ! syncthingpid; then
 fi
 
 if [ "$skiplast" -ne 1 ] && [ "$IP" != "127.0.0.1" ]; then
-    build_infoPanel "Browse to $IP:8384 on PC to setup!"
+    build_infoPanel "Browse to $IP:8384 on PC to setup! \n The app will close automatically."
+    sleep 10
 fi
